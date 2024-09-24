@@ -1,0 +1,33 @@
+===============
+Single function
+===============
+
+PANLIGHT(LIGHT1,1500,1200,SCROLLTIME)
+
+---
+(translation_unit
+    (function
+        (identifier)
+        (identifier)
+        (number)
+        (number)
+        (identifier)))
+
+=====================
+Multiple with comment
+=====================
+
+	Invoke(GSA,1)		# Draw arenas
+    wait(SHOWTIME)		# Delay for (auto) display of asset
+
+---
+(translation_unit
+    (function
+        (identifier)
+        (identifier)
+        (number))
+    (comment)
+    (function
+        (identifier)
+        (identifier))
+    (comment))

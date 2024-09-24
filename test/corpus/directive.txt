@@ -1,0 +1,37 @@
+======
+Define
+======
+
+DEFINE test 100
+
+---
+
+(translation_unit
+    (define
+        (match)
+        (match)))
+
+===================
+Define with decimal
+===================
+
+DEFINE DRAWDELAY 0.5
+
+---
+
+(translation_unit
+    (define
+        (match)
+        (match)))
+
+=======
+Include
+=======
+
+INCLUDE g4Y
+
+---
+
+(translation_unit
+    (include
+        (identifier)))
