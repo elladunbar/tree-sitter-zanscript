@@ -65,3 +65,4 @@
 (identifier) @constant.macro
 (number) @number
 (string) @string
+(function name: (identifier) @function)

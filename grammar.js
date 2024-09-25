@@ -8,6 +8,8 @@ module.exports = grammar({
     /\s/
   ],
 
+  word: $ => $.identifier,
+
   rules: {
     translation_unit: $ => repeat($._top_level_item),
 
@@ -128,10 +130,10 @@ module.exports = grammar({
       $.function,
       $.assignment,
       $.comment,
-    ), 
+    ),
 
     function: $ => seq(
-      $.identifier,
+      field("name", $.identifier),
       '(',
       optional(
         repeat(
@@ -146,7 +148,7 @@ module.exports = grammar({
       ),
       ')',
     ),
-    
+
     _argument: $ => choice(
       $.identifier,
       $.number,
@@ -181,7 +183,7 @@ module.exports = grammar({
       '#',
       /.*/,
     ),
-    
+
     variable: $ => /@[a-zA-Z0-9_]+/,
 
     match: $ => /[a-zA-Z0-9_.]+/,
@@ -191,5 +193,24 @@ module.exports = grammar({
     number: $ => /\d+(\.\d+)?/,
 
     string: $ => /['"].*['"]/,
+
+    //builtin: $ => choice(
+    //  "AUTOREFERENCE",
+    //  "FEEDER",
+    //  "LIGHTS",
+    //  "LOAD",
+    //  "LOG",
+    //  "LOGAPPEND",
+    //  "LOGCREATE",
+    //  "LOGDATA",
+    //  "LOGFIELD",
+    //  "LOGRUN",
+    //  "PANLIGHT",
+    //  "PICTURE",
+    //  "SET",
+    //  "SETCOLOUR",
+    //  "SETLIGHT",
+    //
+    //)
   }
 });

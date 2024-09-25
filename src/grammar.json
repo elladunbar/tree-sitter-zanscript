@@ -1,5 +1,6 @@
 {
   "name": "zanscript",
+  "word": "identifier",
   "rules": {
     "translation_unit": {
       "type": "REPEAT",
@@ -366,8 +367,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         },
         {
           "type": "STRING",
