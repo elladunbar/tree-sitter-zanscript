@@ -141,9 +141,20 @@
   {
     "type": "define",
     "named": true,
-    "fields": {},
+    "fields": {
+      "find": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "match",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
