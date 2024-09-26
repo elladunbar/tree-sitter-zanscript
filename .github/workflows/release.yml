@@ -31,7 +31,7 @@ jobs:
 
     - name: Create an archive of the repository with build artifacts
       run: |
-        zip -r release.zip ./*
+        zip -r tree-sitter-grammar-release.zip ./*
 
     - name: Upload release zip as an artifact
       uses: actions/upload-artifact@v3
