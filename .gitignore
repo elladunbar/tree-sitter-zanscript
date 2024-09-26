@@ -3,7 +3,7 @@ Cargo.lock
 target/
 
 # Node artifacts
-# build/
+build/
 prebuilds/
 node_modules/
 *.tgz
@@ -34,6 +34,6 @@ dist/
 /examples/*/
 
 # Grammar volatiles
-# *.wasm
+*.wasm
 *.obj
 *.o
