@@ -21,7 +21,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '22' # or the version you need
+        node-version: '20' # or the version you need
 
     - name: Install dependencies
       run: npm install
@@ -37,7 +37,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: tree-sitter-grammar-release
-        path: tree-sitter-grammer-release.zip
+        path: tree-sitter-grammar-release.zip
 
   release:
     needs: build
