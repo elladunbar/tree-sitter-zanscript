@@ -58,11 +58,17 @@ module.exports = grammar({
       $.comparison,
       $.block,
       optional(
-        seq(
-          choice(
-            $.else_insensitive,
+        repeat(
+          seq(
             $.elseif_insensitive,
+            $.comparison,
+            $.block,
           ),
+        ),
+      ),
+      optional(
+        seq(
+          $.else_insensitive,
           $.block,
         ),
       ),
