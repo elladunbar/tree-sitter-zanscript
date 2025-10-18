@@ -1,5 +1,8 @@
 name: Build and Release Tree-sitter Grammar
 
+permissions:
+  contents: write
+
 # Trigger on push to main branch or manually
 on:
   push:
