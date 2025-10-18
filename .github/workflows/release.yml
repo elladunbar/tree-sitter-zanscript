@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -29,41 +29,41 @@ jobs:
     - name: Run build step
       run: npm run build
 
-    - name: Create an archive of the repository with build artifacts
+    - name: Create zip archive
       run: |
-        zip -r tree-sitter-grammar-release.zip ./*
+        zip -r grammar-with-artifacts.zip ./*
 
-    - name: Upload release zip as an artifact
-      uses: actions/upload-artifact@v3
+    - name: Release
+      uses: softprops/action-gh-release@v2
       with:
-        name: tree-sitter-grammar-release
-        path: tree-sitter-grammar-release.zip
+        files:
+          grammar-with-artifacts.zip
 
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download the artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: tree-sitter-grammar-release
-
-    - name: Create GitHub Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-      with:
-        tag_name: v${{ github.run_number }}
-        release_name: Release v${{ github.run_number }}
-        draft: false
-        prerelease: false
-
-    - name: Upload zip file to GitHub release
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./tree-sitter-grammar-release.zip
-        asset_name: tree-sitter-grammar-release.zip
-        asset_content_type: application/zip
-
+  # release:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Download the artifact
+  #     uses: actions/download-artifact@v3
+  #     with:
+  #       name: tree-sitter-grammar-release
+  #
+  #   - name: Create GitHub Release
+  #     id: create_release
+  #     uses: actions/create-release@v1
+  #     env:
+  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+  #     with:
+  #       tag_name: v${{ github.run_number }}
+  #       release_name: Release v${{ github.run_number }}
+  #       draft: false
+  #       prerelease: false
+  #
+  #   - name: Upload zip file to GitHub release
+  #     uses: actions/upload-release-asset@v1
+  #     with:
+  #       upload_url: ${{ steps.create_release.outputs.upload_url }}
+  #       asset_path: ./tree-sitter-grammar-release.zip
+  #       asset_name: tree-sitter-grammar-release.zip
+  #       asset_content_type: application/zip
+  #
