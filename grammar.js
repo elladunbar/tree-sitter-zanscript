@@ -54,7 +54,7 @@ module.exports = grammar({
         'action',
         'Action',
       ),
-      $.identifier,
+      field('name', $.identifier),
       $.block,
       choice(
         'COMPLETE',
@@ -133,7 +133,7 @@ module.exports = grammar({
     ),
 
     function: $ => seq(
-      field("name", $.identifier),
+      field('name', $.identifier),
       '(',
       optional(
         repeat(

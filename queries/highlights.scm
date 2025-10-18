@@ -62,7 +62,8 @@
 (comment) @comment
 (variable) @variable
 (match) @constant.macro
-(identifier) @constant.macro
+(identifier) @constant
 (number) @number
 (string) @string
-(function name: (identifier) @function)
+(function name: (identifier) @function.call)
+(action name: (identifier) @function)
