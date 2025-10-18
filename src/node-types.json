@@ -15,15 +15,28 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
+          "type": "action_insensitive",
+          "named": true
+        },
+        {
           "type": "block",
+          "named": true
+        },
+        {
+          "type": "complete_insensitive",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "action_insensitive",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "assignment",
@@ -73,7 +86,7 @@
           "named": true
         },
         {
-          "type": "comment",
+          "type": "detector",
           "named": true
         },
         {
@@ -81,7 +94,15 @@
           "named": true
         },
         {
+          "type": "invoke",
+          "named": true
+        },
+        {
           "type": "loop",
+          "named": true
+        },
+        {
+          "type": "select",
           "named": true
         }
       ]
@@ -101,6 +122,22 @@
         },
         {
           "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "else_insensitive",
+          "named": true
+        },
+        {
+          "type": "elseif_insensitive",
+          "named": true
+        },
+        {
+          "type": "endif_insensitive",
+          "named": true
+        },
+        {
+          "type": "if_insensitive",
           "named": true
         }
       ]
@@ -139,6 +176,11 @@
     }
   },
   {
+    "type": "complete_insensitive",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "define",
     "named": true,
     "fields": {
@@ -154,15 +196,79 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "define_insensitive",
+          "named": true
+        },
         {
           "type": "match",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "define_insensitive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "detector",
+    "named": true,
+    "fields": {
+      "invoked_action": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "detector_insensitive",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "detector_insensitive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "else_insensitive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "elseif_insensitive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "endif_insensitive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "endwhile_insensitive",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "function",
@@ -203,19 +309,80 @@
     }
   },
   {
+    "type": "if_insensitive",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "include",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "identifier",
           "named": true
+        },
+        {
+          "type": "include_insensitive",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "include_insensitive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "invoke",
+    "named": true,
+    "fields": {
+      "invoked_action": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "invoke_insensitive",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "invoke_insensitive",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "loop",
@@ -232,9 +399,74 @@
         {
           "type": "comparison",
           "named": true
+        },
+        {
+          "type": "endwhile_insensitive",
+          "named": true
+        },
+        {
+          "type": "while_insensitive",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "select",
+    "named": true,
+    "fields": {
+      "first_action": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "second_action": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "select_insensitive",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select_insensitive",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "translation_unit",
@@ -257,11 +489,11 @@
           "named": true
         },
         {
-          "type": "comment",
+          "type": "define",
           "named": true
         },
         {
-          "type": "define",
+          "type": "detector",
           "named": true
         },
         {
@@ -273,11 +505,24 @@
           "named": true
         },
         {
+          "type": "invoke",
+          "named": true
+        },
+        {
           "type": "loop",
+          "named": true
+        },
+        {
+          "type": "select",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "while_insensitive",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "#",
@@ -328,11 +573,635 @@
     "named": false
   },
   {
+    "type": "ACTIOn",
+    "named": false
+  },
+  {
+    "type": "ACTIoN",
+    "named": false
+  },
+  {
+    "type": "ACTIon",
+    "named": false
+  },
+  {
+    "type": "ACTiON",
+    "named": false
+  },
+  {
+    "type": "ACTiOn",
+    "named": false
+  },
+  {
+    "type": "ACTioN",
+    "named": false
+  },
+  {
+    "type": "ACTion",
+    "named": false
+  },
+  {
+    "type": "ACtION",
+    "named": false
+  },
+  {
+    "type": "ACtIOn",
+    "named": false
+  },
+  {
+    "type": "ACtIoN",
+    "named": false
+  },
+  {
+    "type": "ACtIon",
+    "named": false
+  },
+  {
+    "type": "ACtiON",
+    "named": false
+  },
+  {
+    "type": "ACtiOn",
+    "named": false
+  },
+  {
+    "type": "ACtioN",
+    "named": false
+  },
+  {
+    "type": "ACtion",
+    "named": false
+  },
+  {
+    "type": "AcTION",
+    "named": false
+  },
+  {
+    "type": "AcTIOn",
+    "named": false
+  },
+  {
+    "type": "AcTIoN",
+    "named": false
+  },
+  {
+    "type": "AcTIon",
+    "named": false
+  },
+  {
+    "type": "AcTiON",
+    "named": false
+  },
+  {
+    "type": "AcTiOn",
+    "named": false
+  },
+  {
+    "type": "AcTioN",
+    "named": false
+  },
+  {
+    "type": "AcTion",
+    "named": false
+  },
+  {
+    "type": "ActION",
+    "named": false
+  },
+  {
+    "type": "ActIOn",
+    "named": false
+  },
+  {
+    "type": "ActIoN",
+    "named": false
+  },
+  {
+    "type": "ActIon",
+    "named": false
+  },
+  {
+    "type": "ActiON",
+    "named": false
+  },
+  {
+    "type": "ActiOn",
+    "named": false
+  },
+  {
+    "type": "ActioN",
+    "named": false
+  },
+  {
     "type": "Action",
     "named": false
   },
   {
     "type": "COMPLETE",
+    "named": false
+  },
+  {
+    "type": "COMPLETe",
+    "named": false
+  },
+  {
+    "type": "COMPLEtE",
+    "named": false
+  },
+  {
+    "type": "COMPLEte",
+    "named": false
+  },
+  {
+    "type": "COMPLeTE",
+    "named": false
+  },
+  {
+    "type": "COMPLeTe",
+    "named": false
+  },
+  {
+    "type": "COMPLetE",
+    "named": false
+  },
+  {
+    "type": "COMPLete",
+    "named": false
+  },
+  {
+    "type": "COMPlETE",
+    "named": false
+  },
+  {
+    "type": "COMPlETe",
+    "named": false
+  },
+  {
+    "type": "COMPlEtE",
+    "named": false
+  },
+  {
+    "type": "COMPlEte",
+    "named": false
+  },
+  {
+    "type": "COMPleTE",
+    "named": false
+  },
+  {
+    "type": "COMPleTe",
+    "named": false
+  },
+  {
+    "type": "COMPletE",
+    "named": false
+  },
+  {
+    "type": "COMPlete",
+    "named": false
+  },
+  {
+    "type": "COMpLETE",
+    "named": false
+  },
+  {
+    "type": "COMpLETe",
+    "named": false
+  },
+  {
+    "type": "COMpLEtE",
+    "named": false
+  },
+  {
+    "type": "COMpLEte",
+    "named": false
+  },
+  {
+    "type": "COMpLeTE",
+    "named": false
+  },
+  {
+    "type": "COMpLeTe",
+    "named": false
+  },
+  {
+    "type": "COMpLetE",
+    "named": false
+  },
+  {
+    "type": "COMpLete",
+    "named": false
+  },
+  {
+    "type": "COMplETE",
+    "named": false
+  },
+  {
+    "type": "COMplETe",
+    "named": false
+  },
+  {
+    "type": "COMplEtE",
+    "named": false
+  },
+  {
+    "type": "COMplEte",
+    "named": false
+  },
+  {
+    "type": "COMpleTE",
+    "named": false
+  },
+  {
+    "type": "COMpleTe",
+    "named": false
+  },
+  {
+    "type": "COMpletE",
+    "named": false
+  },
+  {
+    "type": "COMplete",
+    "named": false
+  },
+  {
+    "type": "COmPLETE",
+    "named": false
+  },
+  {
+    "type": "COmPLETe",
+    "named": false
+  },
+  {
+    "type": "COmPLEtE",
+    "named": false
+  },
+  {
+    "type": "COmPLEte",
+    "named": false
+  },
+  {
+    "type": "COmPLeTE",
+    "named": false
+  },
+  {
+    "type": "COmPLeTe",
+    "named": false
+  },
+  {
+    "type": "COmPLetE",
+    "named": false
+  },
+  {
+    "type": "COmPLete",
+    "named": false
+  },
+  {
+    "type": "COmPlETE",
+    "named": false
+  },
+  {
+    "type": "COmPlETe",
+    "named": false
+  },
+  {
+    "type": "COmPlEtE",
+    "named": false
+  },
+  {
+    "type": "COmPlEte",
+    "named": false
+  },
+  {
+    "type": "COmPleTE",
+    "named": false
+  },
+  {
+    "type": "COmPleTe",
+    "named": false
+  },
+  {
+    "type": "COmPletE",
+    "named": false
+  },
+  {
+    "type": "COmPlete",
+    "named": false
+  },
+  {
+    "type": "COmpLETE",
+    "named": false
+  },
+  {
+    "type": "COmpLETe",
+    "named": false
+  },
+  {
+    "type": "COmpLEtE",
+    "named": false
+  },
+  {
+    "type": "COmpLEte",
+    "named": false
+  },
+  {
+    "type": "COmpLeTE",
+    "named": false
+  },
+  {
+    "type": "COmpLeTe",
+    "named": false
+  },
+  {
+    "type": "COmpLetE",
+    "named": false
+  },
+  {
+    "type": "COmpLete",
+    "named": false
+  },
+  {
+    "type": "COmplETE",
+    "named": false
+  },
+  {
+    "type": "COmplETe",
+    "named": false
+  },
+  {
+    "type": "COmplEtE",
+    "named": false
+  },
+  {
+    "type": "COmplEte",
+    "named": false
+  },
+  {
+    "type": "COmpleTE",
+    "named": false
+  },
+  {
+    "type": "COmpleTe",
+    "named": false
+  },
+  {
+    "type": "COmpletE",
+    "named": false
+  },
+  {
+    "type": "COmplete",
+    "named": false
+  },
+  {
+    "type": "CoMPLETE",
+    "named": false
+  },
+  {
+    "type": "CoMPLETe",
+    "named": false
+  },
+  {
+    "type": "CoMPLEtE",
+    "named": false
+  },
+  {
+    "type": "CoMPLEte",
+    "named": false
+  },
+  {
+    "type": "CoMPLeTE",
+    "named": false
+  },
+  {
+    "type": "CoMPLeTe",
+    "named": false
+  },
+  {
+    "type": "CoMPLetE",
+    "named": false
+  },
+  {
+    "type": "CoMPLete",
+    "named": false
+  },
+  {
+    "type": "CoMPlETE",
+    "named": false
+  },
+  {
+    "type": "CoMPlETe",
+    "named": false
+  },
+  {
+    "type": "CoMPlEtE",
+    "named": false
+  },
+  {
+    "type": "CoMPlEte",
+    "named": false
+  },
+  {
+    "type": "CoMPleTE",
+    "named": false
+  },
+  {
+    "type": "CoMPleTe",
+    "named": false
+  },
+  {
+    "type": "CoMPletE",
+    "named": false
+  },
+  {
+    "type": "CoMPlete",
+    "named": false
+  },
+  {
+    "type": "CoMpLETE",
+    "named": false
+  },
+  {
+    "type": "CoMpLETe",
+    "named": false
+  },
+  {
+    "type": "CoMpLEtE",
+    "named": false
+  },
+  {
+    "type": "CoMpLEte",
+    "named": false
+  },
+  {
+    "type": "CoMpLeTE",
+    "named": false
+  },
+  {
+    "type": "CoMpLeTe",
+    "named": false
+  },
+  {
+    "type": "CoMpLetE",
+    "named": false
+  },
+  {
+    "type": "CoMpLete",
+    "named": false
+  },
+  {
+    "type": "CoMplETE",
+    "named": false
+  },
+  {
+    "type": "CoMplETe",
+    "named": false
+  },
+  {
+    "type": "CoMplEtE",
+    "named": false
+  },
+  {
+    "type": "CoMplEte",
+    "named": false
+  },
+  {
+    "type": "CoMpleTE",
+    "named": false
+  },
+  {
+    "type": "CoMpleTe",
+    "named": false
+  },
+  {
+    "type": "CoMpletE",
+    "named": false
+  },
+  {
+    "type": "CoMplete",
+    "named": false
+  },
+  {
+    "type": "ComPLETE",
+    "named": false
+  },
+  {
+    "type": "ComPLETe",
+    "named": false
+  },
+  {
+    "type": "ComPLEtE",
+    "named": false
+  },
+  {
+    "type": "ComPLEte",
+    "named": false
+  },
+  {
+    "type": "ComPLeTE",
+    "named": false
+  },
+  {
+    "type": "ComPLeTe",
+    "named": false
+  },
+  {
+    "type": "ComPLetE",
+    "named": false
+  },
+  {
+    "type": "ComPLete",
+    "named": false
+  },
+  {
+    "type": "ComPlETE",
+    "named": false
+  },
+  {
+    "type": "ComPlETe",
+    "named": false
+  },
+  {
+    "type": "ComPlEtE",
+    "named": false
+  },
+  {
+    "type": "ComPlEte",
+    "named": false
+  },
+  {
+    "type": "ComPleTE",
+    "named": false
+  },
+  {
+    "type": "ComPleTe",
+    "named": false
+  },
+  {
+    "type": "ComPletE",
+    "named": false
+  },
+  {
+    "type": "ComPlete",
+    "named": false
+  },
+  {
+    "type": "CompLETE",
+    "named": false
+  },
+  {
+    "type": "CompLETe",
+    "named": false
+  },
+  {
+    "type": "CompLEtE",
+    "named": false
+  },
+  {
+    "type": "CompLEte",
+    "named": false
+  },
+  {
+    "type": "CompLeTE",
+    "named": false
+  },
+  {
+    "type": "CompLeTe",
+    "named": false
+  },
+  {
+    "type": "CompLetE",
+    "named": false
+  },
+  {
+    "type": "CompLete",
+    "named": false
+  },
+  {
+    "type": "ComplETE",
+    "named": false
+  },
+  {
+    "type": "ComplETe",
+    "named": false
+  },
+  {
+    "type": "ComplEtE",
+    "named": false
+  },
+  {
+    "type": "ComplEte",
+    "named": false
+  },
+  {
+    "type": "CompleTE",
+    "named": false
+  },
+  {
+    "type": "CompleTe",
+    "named": false
+  },
+  {
+    "type": "CompletE",
     "named": false
   },
   {
@@ -344,7 +1213,639 @@
     "named": false
   },
   {
+    "type": "DEFINe",
+    "named": false
+  },
+  {
+    "type": "DEFInE",
+    "named": false
+  },
+  {
+    "type": "DEFIne",
+    "named": false
+  },
+  {
+    "type": "DEFiNE",
+    "named": false
+  },
+  {
+    "type": "DEFiNe",
+    "named": false
+  },
+  {
+    "type": "DEFinE",
+    "named": false
+  },
+  {
+    "type": "DEFine",
+    "named": false
+  },
+  {
+    "type": "DETECTOR",
+    "named": false
+  },
+  {
+    "type": "DETECTOr",
+    "named": false
+  },
+  {
+    "type": "DETECToR",
+    "named": false
+  },
+  {
+    "type": "DETECTor",
+    "named": false
+  },
+  {
+    "type": "DETECtOR",
+    "named": false
+  },
+  {
+    "type": "DETECtOr",
+    "named": false
+  },
+  {
+    "type": "DETECtoR",
+    "named": false
+  },
+  {
+    "type": "DETECtor",
+    "named": false
+  },
+  {
+    "type": "DETEcTOR",
+    "named": false
+  },
+  {
+    "type": "DETEcTOr",
+    "named": false
+  },
+  {
+    "type": "DETEcToR",
+    "named": false
+  },
+  {
+    "type": "DETEcTor",
+    "named": false
+  },
+  {
+    "type": "DETEctOR",
+    "named": false
+  },
+  {
+    "type": "DETEctOr",
+    "named": false
+  },
+  {
+    "type": "DETEctoR",
+    "named": false
+  },
+  {
+    "type": "DETEctor",
+    "named": false
+  },
+  {
+    "type": "DETeCTOR",
+    "named": false
+  },
+  {
+    "type": "DETeCTOr",
+    "named": false
+  },
+  {
+    "type": "DETeCToR",
+    "named": false
+  },
+  {
+    "type": "DETeCTor",
+    "named": false
+  },
+  {
+    "type": "DETeCtOR",
+    "named": false
+  },
+  {
+    "type": "DETeCtOr",
+    "named": false
+  },
+  {
+    "type": "DETeCtoR",
+    "named": false
+  },
+  {
+    "type": "DETeCtor",
+    "named": false
+  },
+  {
+    "type": "DETecTOR",
+    "named": false
+  },
+  {
+    "type": "DETecTOr",
+    "named": false
+  },
+  {
+    "type": "DETecToR",
+    "named": false
+  },
+  {
+    "type": "DETecTor",
+    "named": false
+  },
+  {
+    "type": "DETectOR",
+    "named": false
+  },
+  {
+    "type": "DETectOr",
+    "named": false
+  },
+  {
+    "type": "DETectoR",
+    "named": false
+  },
+  {
+    "type": "DETector",
+    "named": false
+  },
+  {
+    "type": "DEfINE",
+    "named": false
+  },
+  {
+    "type": "DEfINe",
+    "named": false
+  },
+  {
+    "type": "DEfInE",
+    "named": false
+  },
+  {
+    "type": "DEfIne",
+    "named": false
+  },
+  {
+    "type": "DEfiNE",
+    "named": false
+  },
+  {
+    "type": "DEfiNe",
+    "named": false
+  },
+  {
+    "type": "DEfinE",
+    "named": false
+  },
+  {
+    "type": "DEfine",
+    "named": false
+  },
+  {
+    "type": "DEtECTOR",
+    "named": false
+  },
+  {
+    "type": "DEtECTOr",
+    "named": false
+  },
+  {
+    "type": "DEtECToR",
+    "named": false
+  },
+  {
+    "type": "DEtECTor",
+    "named": false
+  },
+  {
+    "type": "DEtECtOR",
+    "named": false
+  },
+  {
+    "type": "DEtECtOr",
+    "named": false
+  },
+  {
+    "type": "DEtECtoR",
+    "named": false
+  },
+  {
+    "type": "DEtECtor",
+    "named": false
+  },
+  {
+    "type": "DEtEcTOR",
+    "named": false
+  },
+  {
+    "type": "DEtEcTOr",
+    "named": false
+  },
+  {
+    "type": "DEtEcToR",
+    "named": false
+  },
+  {
+    "type": "DEtEcTor",
+    "named": false
+  },
+  {
+    "type": "DEtEctOR",
+    "named": false
+  },
+  {
+    "type": "DEtEctOr",
+    "named": false
+  },
+  {
+    "type": "DEtEctoR",
+    "named": false
+  },
+  {
+    "type": "DEtEctor",
+    "named": false
+  },
+  {
+    "type": "DEteCTOR",
+    "named": false
+  },
+  {
+    "type": "DEteCTOr",
+    "named": false
+  },
+  {
+    "type": "DEteCToR",
+    "named": false
+  },
+  {
+    "type": "DEteCTor",
+    "named": false
+  },
+  {
+    "type": "DEteCtOR",
+    "named": false
+  },
+  {
+    "type": "DEteCtOr",
+    "named": false
+  },
+  {
+    "type": "DEteCtoR",
+    "named": false
+  },
+  {
+    "type": "DEteCtor",
+    "named": false
+  },
+  {
+    "type": "DEtecTOR",
+    "named": false
+  },
+  {
+    "type": "DEtecTOr",
+    "named": false
+  },
+  {
+    "type": "DEtecToR",
+    "named": false
+  },
+  {
+    "type": "DEtecTor",
+    "named": false
+  },
+  {
+    "type": "DEtectOR",
+    "named": false
+  },
+  {
+    "type": "DEtectOr",
+    "named": false
+  },
+  {
+    "type": "DEtectoR",
+    "named": false
+  },
+  {
+    "type": "DEtector",
+    "named": false
+  },
+  {
+    "type": "DeFINE",
+    "named": false
+  },
+  {
+    "type": "DeFINe",
+    "named": false
+  },
+  {
+    "type": "DeFInE",
+    "named": false
+  },
+  {
+    "type": "DeFIne",
+    "named": false
+  },
+  {
+    "type": "DeFiNE",
+    "named": false
+  },
+  {
+    "type": "DeFiNe",
+    "named": false
+  },
+  {
+    "type": "DeFinE",
+    "named": false
+  },
+  {
+    "type": "DeFine",
+    "named": false
+  },
+  {
+    "type": "DeTECTOR",
+    "named": false
+  },
+  {
+    "type": "DeTECTOr",
+    "named": false
+  },
+  {
+    "type": "DeTECToR",
+    "named": false
+  },
+  {
+    "type": "DeTECTor",
+    "named": false
+  },
+  {
+    "type": "DeTECtOR",
+    "named": false
+  },
+  {
+    "type": "DeTECtOr",
+    "named": false
+  },
+  {
+    "type": "DeTECtoR",
+    "named": false
+  },
+  {
+    "type": "DeTECtor",
+    "named": false
+  },
+  {
+    "type": "DeTEcTOR",
+    "named": false
+  },
+  {
+    "type": "DeTEcTOr",
+    "named": false
+  },
+  {
+    "type": "DeTEcToR",
+    "named": false
+  },
+  {
+    "type": "DeTEcTor",
+    "named": false
+  },
+  {
+    "type": "DeTEctOR",
+    "named": false
+  },
+  {
+    "type": "DeTEctOr",
+    "named": false
+  },
+  {
+    "type": "DeTEctoR",
+    "named": false
+  },
+  {
+    "type": "DeTEctor",
+    "named": false
+  },
+  {
+    "type": "DeTeCTOR",
+    "named": false
+  },
+  {
+    "type": "DeTeCTOr",
+    "named": false
+  },
+  {
+    "type": "DeTeCToR",
+    "named": false
+  },
+  {
+    "type": "DeTeCTor",
+    "named": false
+  },
+  {
+    "type": "DeTeCtOR",
+    "named": false
+  },
+  {
+    "type": "DeTeCtOr",
+    "named": false
+  },
+  {
+    "type": "DeTeCtoR",
+    "named": false
+  },
+  {
+    "type": "DeTeCtor",
+    "named": false
+  },
+  {
+    "type": "DeTecTOR",
+    "named": false
+  },
+  {
+    "type": "DeTecTOr",
+    "named": false
+  },
+  {
+    "type": "DeTecToR",
+    "named": false
+  },
+  {
+    "type": "DeTecTor",
+    "named": false
+  },
+  {
+    "type": "DeTectOR",
+    "named": false
+  },
+  {
+    "type": "DeTectOr",
+    "named": false
+  },
+  {
+    "type": "DeTectoR",
+    "named": false
+  },
+  {
+    "type": "DeTector",
+    "named": false
+  },
+  {
+    "type": "DefINE",
+    "named": false
+  },
+  {
+    "type": "DefINe",
+    "named": false
+  },
+  {
+    "type": "DefInE",
+    "named": false
+  },
+  {
+    "type": "DefIne",
+    "named": false
+  },
+  {
+    "type": "DefiNE",
+    "named": false
+  },
+  {
+    "type": "DefiNe",
+    "named": false
+  },
+  {
+    "type": "DefinE",
+    "named": false
+  },
+  {
     "type": "Define",
+    "named": false
+  },
+  {
+    "type": "DetECTOR",
+    "named": false
+  },
+  {
+    "type": "DetECTOr",
+    "named": false
+  },
+  {
+    "type": "DetECToR",
+    "named": false
+  },
+  {
+    "type": "DetECTor",
+    "named": false
+  },
+  {
+    "type": "DetECtOR",
+    "named": false
+  },
+  {
+    "type": "DetECtOr",
+    "named": false
+  },
+  {
+    "type": "DetECtoR",
+    "named": false
+  },
+  {
+    "type": "DetECtor",
+    "named": false
+  },
+  {
+    "type": "DetEcTOR",
+    "named": false
+  },
+  {
+    "type": "DetEcTOr",
+    "named": false
+  },
+  {
+    "type": "DetEcToR",
+    "named": false
+  },
+  {
+    "type": "DetEcTor",
+    "named": false
+  },
+  {
+    "type": "DetEctOR",
+    "named": false
+  },
+  {
+    "type": "DetEctOr",
+    "named": false
+  },
+  {
+    "type": "DetEctoR",
+    "named": false
+  },
+  {
+    "type": "DetEctor",
+    "named": false
+  },
+  {
+    "type": "DeteCTOR",
+    "named": false
+  },
+  {
+    "type": "DeteCTOr",
+    "named": false
+  },
+  {
+    "type": "DeteCToR",
+    "named": false
+  },
+  {
+    "type": "DeteCTor",
+    "named": false
+  },
+  {
+    "type": "DeteCtOR",
+    "named": false
+  },
+  {
+    "type": "DeteCtOr",
+    "named": false
+  },
+  {
+    "type": "DeteCtoR",
+    "named": false
+  },
+  {
+    "type": "DeteCtor",
+    "named": false
+  },
+  {
+    "type": "DetecTOR",
+    "named": false
+  },
+  {
+    "type": "DetecTOr",
+    "named": false
+  },
+  {
+    "type": "DetecToR",
+    "named": false
+  },
+  {
+    "type": "DetecTor",
+    "named": false
+  },
+  {
+    "type": "DetectOR",
+    "named": false
+  },
+  {
+    "type": "DetectOr",
+    "named": false
+  },
+  {
+    "type": "DetectoR",
+    "named": false
+  },
+  {
+    "type": "Detector",
     "named": false
   },
   {
@@ -352,7 +1853,87 @@
     "named": false
   },
   {
+    "type": "ELSEIF",
+    "named": false
+  },
+  {
+    "type": "ELSEIf",
+    "named": false
+  },
+  {
+    "type": "ELSEiF",
+    "named": false
+  },
+  {
+    "type": "ELSEif",
+    "named": false
+  },
+  {
+    "type": "ELSe",
+    "named": false
+  },
+  {
+    "type": "ELSeIF",
+    "named": false
+  },
+  {
+    "type": "ELSeIf",
+    "named": false
+  },
+  {
+    "type": "ELSeiF",
+    "named": false
+  },
+  {
+    "type": "ELSeif",
+    "named": false
+  },
+  {
+    "type": "ELsE",
+    "named": false
+  },
+  {
+    "type": "ELsEIF",
+    "named": false
+  },
+  {
+    "type": "ELsEIf",
+    "named": false
+  },
+  {
+    "type": "ELsEiF",
+    "named": false
+  },
+  {
+    "type": "ELsEif",
+    "named": false
+  },
+  {
+    "type": "ELse",
+    "named": false
+  },
+  {
+    "type": "ELseIF",
+    "named": false
+  },
+  {
+    "type": "ELseIf",
+    "named": false
+  },
+  {
+    "type": "ELseiF",
+    "named": false
+  },
+  {
+    "type": "ELseif",
+    "named": false
+  },
+  {
     "type": "ENDIF",
+    "named": false
+  },
+  {
+    "type": "ENDIf",
     "named": false
   },
   {
@@ -360,7 +1941,507 @@
     "named": false
   },
   {
+    "type": "ENDWHILe",
+    "named": false
+  },
+  {
+    "type": "ENDWHIlE",
+    "named": false
+  },
+  {
+    "type": "ENDWHIle",
+    "named": false
+  },
+  {
+    "type": "ENDWHiLE",
+    "named": false
+  },
+  {
+    "type": "ENDWHiLe",
+    "named": false
+  },
+  {
+    "type": "ENDWHilE",
+    "named": false
+  },
+  {
+    "type": "ENDWHile",
+    "named": false
+  },
+  {
+    "type": "ENDWhILE",
+    "named": false
+  },
+  {
+    "type": "ENDWhILe",
+    "named": false
+  },
+  {
+    "type": "ENDWhIlE",
+    "named": false
+  },
+  {
+    "type": "ENDWhIle",
+    "named": false
+  },
+  {
+    "type": "ENDWhiLE",
+    "named": false
+  },
+  {
+    "type": "ENDWhiLe",
+    "named": false
+  },
+  {
+    "type": "ENDWhilE",
+    "named": false
+  },
+  {
+    "type": "ENDWhile",
+    "named": false
+  },
+  {
+    "type": "ENDiF",
+    "named": false
+  },
+  {
+    "type": "ENDif",
+    "named": false
+  },
+  {
+    "type": "ENDwHILE",
+    "named": false
+  },
+  {
+    "type": "ENDwHILe",
+    "named": false
+  },
+  {
+    "type": "ENDwHIlE",
+    "named": false
+  },
+  {
+    "type": "ENDwHIle",
+    "named": false
+  },
+  {
+    "type": "ENDwHiLE",
+    "named": false
+  },
+  {
+    "type": "ENDwHiLe",
+    "named": false
+  },
+  {
+    "type": "ENDwHilE",
+    "named": false
+  },
+  {
+    "type": "ENDwHile",
+    "named": false
+  },
+  {
+    "type": "ENDwhILE",
+    "named": false
+  },
+  {
+    "type": "ENDwhILe",
+    "named": false
+  },
+  {
+    "type": "ENDwhIlE",
+    "named": false
+  },
+  {
+    "type": "ENDwhIle",
+    "named": false
+  },
+  {
+    "type": "ENDwhiLE",
+    "named": false
+  },
+  {
+    "type": "ENDwhiLe",
+    "named": false
+  },
+  {
+    "type": "ENDwhilE",
+    "named": false
+  },
+  {
+    "type": "ENDwhile",
+    "named": false
+  },
+  {
+    "type": "ENdIF",
+    "named": false
+  },
+  {
+    "type": "ENdIf",
+    "named": false
+  },
+  {
+    "type": "ENdWHILE",
+    "named": false
+  },
+  {
+    "type": "ENdWHILe",
+    "named": false
+  },
+  {
+    "type": "ENdWHIlE",
+    "named": false
+  },
+  {
+    "type": "ENdWHIle",
+    "named": false
+  },
+  {
+    "type": "ENdWHiLE",
+    "named": false
+  },
+  {
+    "type": "ENdWHiLe",
+    "named": false
+  },
+  {
+    "type": "ENdWHilE",
+    "named": false
+  },
+  {
+    "type": "ENdWHile",
+    "named": false
+  },
+  {
+    "type": "ENdWhILE",
+    "named": false
+  },
+  {
+    "type": "ENdWhILe",
+    "named": false
+  },
+  {
+    "type": "ENdWhIlE",
+    "named": false
+  },
+  {
+    "type": "ENdWhIle",
+    "named": false
+  },
+  {
+    "type": "ENdWhiLE",
+    "named": false
+  },
+  {
+    "type": "ENdWhiLe",
+    "named": false
+  },
+  {
+    "type": "ENdWhilE",
+    "named": false
+  },
+  {
+    "type": "ENdWhile",
+    "named": false
+  },
+  {
+    "type": "ENdiF",
+    "named": false
+  },
+  {
+    "type": "ENdif",
+    "named": false
+  },
+  {
+    "type": "ENdwHILE",
+    "named": false
+  },
+  {
+    "type": "ENdwHILe",
+    "named": false
+  },
+  {
+    "type": "ENdwHIlE",
+    "named": false
+  },
+  {
+    "type": "ENdwHIle",
+    "named": false
+  },
+  {
+    "type": "ENdwHiLE",
+    "named": false
+  },
+  {
+    "type": "ENdwHiLe",
+    "named": false
+  },
+  {
+    "type": "ENdwHilE",
+    "named": false
+  },
+  {
+    "type": "ENdwHile",
+    "named": false
+  },
+  {
+    "type": "ENdwhILE",
+    "named": false
+  },
+  {
+    "type": "ENdwhILe",
+    "named": false
+  },
+  {
+    "type": "ENdwhIlE",
+    "named": false
+  },
+  {
+    "type": "ENdwhIle",
+    "named": false
+  },
+  {
+    "type": "ENdwhiLE",
+    "named": false
+  },
+  {
+    "type": "ENdwhiLe",
+    "named": false
+  },
+  {
+    "type": "ENdwhilE",
+    "named": false
+  },
+  {
+    "type": "ENdwhile",
+    "named": false
+  },
+  {
+    "type": "ElSE",
+    "named": false
+  },
+  {
+    "type": "ElSEIF",
+    "named": false
+  },
+  {
+    "type": "ElSEIf",
+    "named": false
+  },
+  {
+    "type": "ElSEiF",
+    "named": false
+  },
+  {
+    "type": "ElSEif",
+    "named": false
+  },
+  {
+    "type": "ElSe",
+    "named": false
+  },
+  {
+    "type": "ElSeIF",
+    "named": false
+  },
+  {
+    "type": "ElSeIf",
+    "named": false
+  },
+  {
+    "type": "ElSeiF",
+    "named": false
+  },
+  {
+    "type": "ElSeif",
+    "named": false
+  },
+  {
+    "type": "ElsE",
+    "named": false
+  },
+  {
+    "type": "ElsEIF",
+    "named": false
+  },
+  {
+    "type": "ElsEIf",
+    "named": false
+  },
+  {
+    "type": "ElsEiF",
+    "named": false
+  },
+  {
+    "type": "ElsEif",
+    "named": false
+  },
+  {
     "type": "Else",
+    "named": false
+  },
+  {
+    "type": "ElseIF",
+    "named": false
+  },
+  {
+    "type": "ElseIf",
+    "named": false
+  },
+  {
+    "type": "ElseiF",
+    "named": false
+  },
+  {
+    "type": "Elseif",
+    "named": false
+  },
+  {
+    "type": "EnDIF",
+    "named": false
+  },
+  {
+    "type": "EnDIf",
+    "named": false
+  },
+  {
+    "type": "EnDWHILE",
+    "named": false
+  },
+  {
+    "type": "EnDWHILe",
+    "named": false
+  },
+  {
+    "type": "EnDWHIlE",
+    "named": false
+  },
+  {
+    "type": "EnDWHIle",
+    "named": false
+  },
+  {
+    "type": "EnDWHiLE",
+    "named": false
+  },
+  {
+    "type": "EnDWHiLe",
+    "named": false
+  },
+  {
+    "type": "EnDWHilE",
+    "named": false
+  },
+  {
+    "type": "EnDWHile",
+    "named": false
+  },
+  {
+    "type": "EnDWhILE",
+    "named": false
+  },
+  {
+    "type": "EnDWhILe",
+    "named": false
+  },
+  {
+    "type": "EnDWhIlE",
+    "named": false
+  },
+  {
+    "type": "EnDWhIle",
+    "named": false
+  },
+  {
+    "type": "EnDWhiLE",
+    "named": false
+  },
+  {
+    "type": "EnDWhiLe",
+    "named": false
+  },
+  {
+    "type": "EnDWhilE",
+    "named": false
+  },
+  {
+    "type": "EnDWhile",
+    "named": false
+  },
+  {
+    "type": "EnDiF",
+    "named": false
+  },
+  {
+    "type": "EnDif",
+    "named": false
+  },
+  {
+    "type": "EnDwHILE",
+    "named": false
+  },
+  {
+    "type": "EnDwHILe",
+    "named": false
+  },
+  {
+    "type": "EnDwHIlE",
+    "named": false
+  },
+  {
+    "type": "EnDwHIle",
+    "named": false
+  },
+  {
+    "type": "EnDwHiLE",
+    "named": false
+  },
+  {
+    "type": "EnDwHiLe",
+    "named": false
+  },
+  {
+    "type": "EnDwHilE",
+    "named": false
+  },
+  {
+    "type": "EnDwHile",
+    "named": false
+  },
+  {
+    "type": "EnDwhILE",
+    "named": false
+  },
+  {
+    "type": "EnDwhILe",
+    "named": false
+  },
+  {
+    "type": "EnDwhIlE",
+    "named": false
+  },
+  {
+    "type": "EnDwhIle",
+    "named": false
+  },
+  {
+    "type": "EnDwhiLE",
+    "named": false
+  },
+  {
+    "type": "EnDwhiLe",
+    "named": false
+  },
+  {
+    "type": "EnDwhilE",
+    "named": false
+  },
+  {
+    "type": "EnDwhile",
+    "named": false
+  },
+  {
+    "type": "EndIF",
     "named": false
   },
   {
@@ -368,7 +2449,135 @@
     "named": false
   },
   {
+    "type": "EndWHILE",
+    "named": false
+  },
+  {
+    "type": "EndWHILe",
+    "named": false
+  },
+  {
+    "type": "EndWHIlE",
+    "named": false
+  },
+  {
+    "type": "EndWHIle",
+    "named": false
+  },
+  {
+    "type": "EndWHiLE",
+    "named": false
+  },
+  {
+    "type": "EndWHiLe",
+    "named": false
+  },
+  {
+    "type": "EndWHilE",
+    "named": false
+  },
+  {
+    "type": "EndWHile",
+    "named": false
+  },
+  {
+    "type": "EndWhILE",
+    "named": false
+  },
+  {
+    "type": "EndWhILe",
+    "named": false
+  },
+  {
+    "type": "EndWhIlE",
+    "named": false
+  },
+  {
+    "type": "EndWhIle",
+    "named": false
+  },
+  {
+    "type": "EndWhiLE",
+    "named": false
+  },
+  {
+    "type": "EndWhiLe",
+    "named": false
+  },
+  {
+    "type": "EndWhilE",
+    "named": false
+  },
+  {
+    "type": "EndWhile",
+    "named": false
+  },
+  {
+    "type": "EndiF",
+    "named": false
+  },
+  {
     "type": "Endif",
+    "named": false
+  },
+  {
+    "type": "EndwHILE",
+    "named": false
+  },
+  {
+    "type": "EndwHILe",
+    "named": false
+  },
+  {
+    "type": "EndwHIlE",
+    "named": false
+  },
+  {
+    "type": "EndwHIle",
+    "named": false
+  },
+  {
+    "type": "EndwHiLE",
+    "named": false
+  },
+  {
+    "type": "EndwHiLe",
+    "named": false
+  },
+  {
+    "type": "EndwHilE",
+    "named": false
+  },
+  {
+    "type": "EndwHile",
+    "named": false
+  },
+  {
+    "type": "EndwhILE",
+    "named": false
+  },
+  {
+    "type": "EndwhILe",
+    "named": false
+  },
+  {
+    "type": "EndwhIlE",
+    "named": false
+  },
+  {
+    "type": "EndwhIle",
+    "named": false
+  },
+  {
+    "type": "EndwhiLE",
+    "named": false
+  },
+  {
+    "type": "EndwhiLe",
+    "named": false
+  },
+  {
+    "type": "EndwhilE",
     "named": false
   },
   {
@@ -384,7 +2593,351 @@
     "named": false
   },
   {
+    "type": "INCLUDe",
+    "named": false
+  },
+  {
+    "type": "INCLUdE",
+    "named": false
+  },
+  {
+    "type": "INCLUde",
+    "named": false
+  },
+  {
+    "type": "INCLuDE",
+    "named": false
+  },
+  {
+    "type": "INCLuDe",
+    "named": false
+  },
+  {
+    "type": "INCLudE",
+    "named": false
+  },
+  {
+    "type": "INCLude",
+    "named": false
+  },
+  {
+    "type": "INClUDE",
+    "named": false
+  },
+  {
+    "type": "INClUDe",
+    "named": false
+  },
+  {
+    "type": "INClUdE",
+    "named": false
+  },
+  {
+    "type": "INClUde",
+    "named": false
+  },
+  {
+    "type": "INCluDE",
+    "named": false
+  },
+  {
+    "type": "INCluDe",
+    "named": false
+  },
+  {
+    "type": "INCludE",
+    "named": false
+  },
+  {
+    "type": "INClude",
+    "named": false
+  },
+  {
+    "type": "INVOKE",
+    "named": false
+  },
+  {
+    "type": "INVOKe",
+    "named": false
+  },
+  {
+    "type": "INVOkE",
+    "named": false
+  },
+  {
+    "type": "INVOke",
+    "named": false
+  },
+  {
+    "type": "INVoKE",
+    "named": false
+  },
+  {
+    "type": "INVoKe",
+    "named": false
+  },
+  {
+    "type": "INVokE",
+    "named": false
+  },
+  {
+    "type": "INVoke",
+    "named": false
+  },
+  {
+    "type": "INcLUDE",
+    "named": false
+  },
+  {
+    "type": "INcLUDe",
+    "named": false
+  },
+  {
+    "type": "INcLUdE",
+    "named": false
+  },
+  {
+    "type": "INcLUde",
+    "named": false
+  },
+  {
+    "type": "INcLuDE",
+    "named": false
+  },
+  {
+    "type": "INcLuDe",
+    "named": false
+  },
+  {
+    "type": "INcLudE",
+    "named": false
+  },
+  {
+    "type": "INcLude",
+    "named": false
+  },
+  {
+    "type": "INclUDE",
+    "named": false
+  },
+  {
+    "type": "INclUDe",
+    "named": false
+  },
+  {
+    "type": "INclUdE",
+    "named": false
+  },
+  {
+    "type": "INclUde",
+    "named": false
+  },
+  {
+    "type": "INcluDE",
+    "named": false
+  },
+  {
+    "type": "INcluDe",
+    "named": false
+  },
+  {
+    "type": "INcludE",
+    "named": false
+  },
+  {
+    "type": "INclude",
+    "named": false
+  },
+  {
+    "type": "INvOKE",
+    "named": false
+  },
+  {
+    "type": "INvOKe",
+    "named": false
+  },
+  {
+    "type": "INvOkE",
+    "named": false
+  },
+  {
+    "type": "INvOke",
+    "named": false
+  },
+  {
+    "type": "INvoKE",
+    "named": false
+  },
+  {
+    "type": "INvoKe",
+    "named": false
+  },
+  {
+    "type": "INvokE",
+    "named": false
+  },
+  {
+    "type": "INvoke",
+    "named": false
+  },
+  {
     "type": "If",
+    "named": false
+  },
+  {
+    "type": "InCLUDE",
+    "named": false
+  },
+  {
+    "type": "InCLUDe",
+    "named": false
+  },
+  {
+    "type": "InCLUdE",
+    "named": false
+  },
+  {
+    "type": "InCLUde",
+    "named": false
+  },
+  {
+    "type": "InCLuDE",
+    "named": false
+  },
+  {
+    "type": "InCLuDe",
+    "named": false
+  },
+  {
+    "type": "InCLudE",
+    "named": false
+  },
+  {
+    "type": "InCLude",
+    "named": false
+  },
+  {
+    "type": "InClUDE",
+    "named": false
+  },
+  {
+    "type": "InClUDe",
+    "named": false
+  },
+  {
+    "type": "InClUdE",
+    "named": false
+  },
+  {
+    "type": "InClUde",
+    "named": false
+  },
+  {
+    "type": "InCluDE",
+    "named": false
+  },
+  {
+    "type": "InCluDe",
+    "named": false
+  },
+  {
+    "type": "InCludE",
+    "named": false
+  },
+  {
+    "type": "InClude",
+    "named": false
+  },
+  {
+    "type": "InVOKE",
+    "named": false
+  },
+  {
+    "type": "InVOKe",
+    "named": false
+  },
+  {
+    "type": "InVOkE",
+    "named": false
+  },
+  {
+    "type": "InVOke",
+    "named": false
+  },
+  {
+    "type": "InVoKE",
+    "named": false
+  },
+  {
+    "type": "InVoKe",
+    "named": false
+  },
+  {
+    "type": "InVokE",
+    "named": false
+  },
+  {
+    "type": "InVoke",
+    "named": false
+  },
+  {
+    "type": "IncLUDE",
+    "named": false
+  },
+  {
+    "type": "IncLUDe",
+    "named": false
+  },
+  {
+    "type": "IncLUdE",
+    "named": false
+  },
+  {
+    "type": "IncLUde",
+    "named": false
+  },
+  {
+    "type": "IncLuDE",
+    "named": false
+  },
+  {
+    "type": "IncLuDe",
+    "named": false
+  },
+  {
+    "type": "IncLudE",
+    "named": false
+  },
+  {
+    "type": "IncLude",
+    "named": false
+  },
+  {
+    "type": "InclUDE",
+    "named": false
+  },
+  {
+    "type": "InclUDe",
+    "named": false
+  },
+  {
+    "type": "InclUdE",
+    "named": false
+  },
+  {
+    "type": "InclUde",
+    "named": false
+  },
+  {
+    "type": "IncluDE",
+    "named": false
+  },
+  {
+    "type": "IncluDe",
+    "named": false
+  },
+  {
+    "type": "IncludE",
     "named": false
   },
   {
@@ -392,7 +2945,223 @@
     "named": false
   },
   {
+    "type": "InvOKE",
+    "named": false
+  },
+  {
+    "type": "InvOKe",
+    "named": false
+  },
+  {
+    "type": "InvOkE",
+    "named": false
+  },
+  {
+    "type": "InvOke",
+    "named": false
+  },
+  {
+    "type": "InvoKE",
+    "named": false
+  },
+  {
+    "type": "InvoKe",
+    "named": false
+  },
+  {
+    "type": "InvokE",
+    "named": false
+  },
+  {
+    "type": "Invoke",
+    "named": false
+  },
+  {
+    "type": "SELECT",
+    "named": false
+  },
+  {
+    "type": "SELECt",
+    "named": false
+  },
+  {
+    "type": "SELEcT",
+    "named": false
+  },
+  {
+    "type": "SELEct",
+    "named": false
+  },
+  {
+    "type": "SELeCT",
+    "named": false
+  },
+  {
+    "type": "SELeCt",
+    "named": false
+  },
+  {
+    "type": "SELecT",
+    "named": false
+  },
+  {
+    "type": "SELect",
+    "named": false
+  },
+  {
+    "type": "SElECT",
+    "named": false
+  },
+  {
+    "type": "SElECt",
+    "named": false
+  },
+  {
+    "type": "SElEcT",
+    "named": false
+  },
+  {
+    "type": "SElEct",
+    "named": false
+  },
+  {
+    "type": "SEleCT",
+    "named": false
+  },
+  {
+    "type": "SEleCt",
+    "named": false
+  },
+  {
+    "type": "SElecT",
+    "named": false
+  },
+  {
+    "type": "SElect",
+    "named": false
+  },
+  {
+    "type": "SeLECT",
+    "named": false
+  },
+  {
+    "type": "SeLECt",
+    "named": false
+  },
+  {
+    "type": "SeLEcT",
+    "named": false
+  },
+  {
+    "type": "SeLEct",
+    "named": false
+  },
+  {
+    "type": "SeLeCT",
+    "named": false
+  },
+  {
+    "type": "SeLeCt",
+    "named": false
+  },
+  {
+    "type": "SeLecT",
+    "named": false
+  },
+  {
+    "type": "SeLect",
+    "named": false
+  },
+  {
+    "type": "SelECT",
+    "named": false
+  },
+  {
+    "type": "SelECt",
+    "named": false
+  },
+  {
+    "type": "SelEcT",
+    "named": false
+  },
+  {
+    "type": "SelEct",
+    "named": false
+  },
+  {
+    "type": "SeleCT",
+    "named": false
+  },
+  {
+    "type": "SeleCt",
+    "named": false
+  },
+  {
+    "type": "SelecT",
+    "named": false
+  },
+  {
+    "type": "Select",
+    "named": false
+  },
+  {
     "type": "WHILE",
+    "named": false
+  },
+  {
+    "type": "WHILe",
+    "named": false
+  },
+  {
+    "type": "WHIlE",
+    "named": false
+  },
+  {
+    "type": "WHIle",
+    "named": false
+  },
+  {
+    "type": "WHiLE",
+    "named": false
+  },
+  {
+    "type": "WHiLe",
+    "named": false
+  },
+  {
+    "type": "WHilE",
+    "named": false
+  },
+  {
+    "type": "WHile",
+    "named": false
+  },
+  {
+    "type": "WhILE",
+    "named": false
+  },
+  {
+    "type": "WhILe",
+    "named": false
+  },
+  {
+    "type": "WhIlE",
+    "named": false
+  },
+  {
+    "type": "WhIle",
+    "named": false
+  },
+  {
+    "type": "WhiLE",
+    "named": false
+  },
+  {
+    "type": "WhiLe",
+    "named": false
+  },
+  {
+    "type": "WhilE",
     "named": false
   },
   {
@@ -400,7 +3169,639 @@
     "named": false
   },
   {
+    "type": "aCTION",
+    "named": false
+  },
+  {
+    "type": "aCTIOn",
+    "named": false
+  },
+  {
+    "type": "aCTIoN",
+    "named": false
+  },
+  {
+    "type": "aCTIon",
+    "named": false
+  },
+  {
+    "type": "aCTiON",
+    "named": false
+  },
+  {
+    "type": "aCTiOn",
+    "named": false
+  },
+  {
+    "type": "aCTioN",
+    "named": false
+  },
+  {
+    "type": "aCTion",
+    "named": false
+  },
+  {
+    "type": "aCtION",
+    "named": false
+  },
+  {
+    "type": "aCtIOn",
+    "named": false
+  },
+  {
+    "type": "aCtIoN",
+    "named": false
+  },
+  {
+    "type": "aCtIon",
+    "named": false
+  },
+  {
+    "type": "aCtiON",
+    "named": false
+  },
+  {
+    "type": "aCtiOn",
+    "named": false
+  },
+  {
+    "type": "aCtioN",
+    "named": false
+  },
+  {
+    "type": "aCtion",
+    "named": false
+  },
+  {
+    "type": "acTION",
+    "named": false
+  },
+  {
+    "type": "acTIOn",
+    "named": false
+  },
+  {
+    "type": "acTIoN",
+    "named": false
+  },
+  {
+    "type": "acTIon",
+    "named": false
+  },
+  {
+    "type": "acTiON",
+    "named": false
+  },
+  {
+    "type": "acTiOn",
+    "named": false
+  },
+  {
+    "type": "acTioN",
+    "named": false
+  },
+  {
+    "type": "acTion",
+    "named": false
+  },
+  {
+    "type": "actION",
+    "named": false
+  },
+  {
+    "type": "actIOn",
+    "named": false
+  },
+  {
+    "type": "actIoN",
+    "named": false
+  },
+  {
+    "type": "actIon",
+    "named": false
+  },
+  {
+    "type": "actiON",
+    "named": false
+  },
+  {
+    "type": "actiOn",
+    "named": false
+  },
+  {
+    "type": "actioN",
+    "named": false
+  },
+  {
     "type": "action",
+    "named": false
+  },
+  {
+    "type": "cOMPLETE",
+    "named": false
+  },
+  {
+    "type": "cOMPLETe",
+    "named": false
+  },
+  {
+    "type": "cOMPLEtE",
+    "named": false
+  },
+  {
+    "type": "cOMPLEte",
+    "named": false
+  },
+  {
+    "type": "cOMPLeTE",
+    "named": false
+  },
+  {
+    "type": "cOMPLeTe",
+    "named": false
+  },
+  {
+    "type": "cOMPLetE",
+    "named": false
+  },
+  {
+    "type": "cOMPLete",
+    "named": false
+  },
+  {
+    "type": "cOMPlETE",
+    "named": false
+  },
+  {
+    "type": "cOMPlETe",
+    "named": false
+  },
+  {
+    "type": "cOMPlEtE",
+    "named": false
+  },
+  {
+    "type": "cOMPlEte",
+    "named": false
+  },
+  {
+    "type": "cOMPleTE",
+    "named": false
+  },
+  {
+    "type": "cOMPleTe",
+    "named": false
+  },
+  {
+    "type": "cOMPletE",
+    "named": false
+  },
+  {
+    "type": "cOMPlete",
+    "named": false
+  },
+  {
+    "type": "cOMpLETE",
+    "named": false
+  },
+  {
+    "type": "cOMpLETe",
+    "named": false
+  },
+  {
+    "type": "cOMpLEtE",
+    "named": false
+  },
+  {
+    "type": "cOMpLEte",
+    "named": false
+  },
+  {
+    "type": "cOMpLeTE",
+    "named": false
+  },
+  {
+    "type": "cOMpLeTe",
+    "named": false
+  },
+  {
+    "type": "cOMpLetE",
+    "named": false
+  },
+  {
+    "type": "cOMpLete",
+    "named": false
+  },
+  {
+    "type": "cOMplETE",
+    "named": false
+  },
+  {
+    "type": "cOMplETe",
+    "named": false
+  },
+  {
+    "type": "cOMplEtE",
+    "named": false
+  },
+  {
+    "type": "cOMplEte",
+    "named": false
+  },
+  {
+    "type": "cOMpleTE",
+    "named": false
+  },
+  {
+    "type": "cOMpleTe",
+    "named": false
+  },
+  {
+    "type": "cOMpletE",
+    "named": false
+  },
+  {
+    "type": "cOMplete",
+    "named": false
+  },
+  {
+    "type": "cOmPLETE",
+    "named": false
+  },
+  {
+    "type": "cOmPLETe",
+    "named": false
+  },
+  {
+    "type": "cOmPLEtE",
+    "named": false
+  },
+  {
+    "type": "cOmPLEte",
+    "named": false
+  },
+  {
+    "type": "cOmPLeTE",
+    "named": false
+  },
+  {
+    "type": "cOmPLeTe",
+    "named": false
+  },
+  {
+    "type": "cOmPLetE",
+    "named": false
+  },
+  {
+    "type": "cOmPLete",
+    "named": false
+  },
+  {
+    "type": "cOmPlETE",
+    "named": false
+  },
+  {
+    "type": "cOmPlETe",
+    "named": false
+  },
+  {
+    "type": "cOmPlEtE",
+    "named": false
+  },
+  {
+    "type": "cOmPlEte",
+    "named": false
+  },
+  {
+    "type": "cOmPleTE",
+    "named": false
+  },
+  {
+    "type": "cOmPleTe",
+    "named": false
+  },
+  {
+    "type": "cOmPletE",
+    "named": false
+  },
+  {
+    "type": "cOmPlete",
+    "named": false
+  },
+  {
+    "type": "cOmpLETE",
+    "named": false
+  },
+  {
+    "type": "cOmpLETe",
+    "named": false
+  },
+  {
+    "type": "cOmpLEtE",
+    "named": false
+  },
+  {
+    "type": "cOmpLEte",
+    "named": false
+  },
+  {
+    "type": "cOmpLeTE",
+    "named": false
+  },
+  {
+    "type": "cOmpLeTe",
+    "named": false
+  },
+  {
+    "type": "cOmpLetE",
+    "named": false
+  },
+  {
+    "type": "cOmpLete",
+    "named": false
+  },
+  {
+    "type": "cOmplETE",
+    "named": false
+  },
+  {
+    "type": "cOmplETe",
+    "named": false
+  },
+  {
+    "type": "cOmplEtE",
+    "named": false
+  },
+  {
+    "type": "cOmplEte",
+    "named": false
+  },
+  {
+    "type": "cOmpleTE",
+    "named": false
+  },
+  {
+    "type": "cOmpleTe",
+    "named": false
+  },
+  {
+    "type": "cOmpletE",
+    "named": false
+  },
+  {
+    "type": "cOmplete",
+    "named": false
+  },
+  {
+    "type": "coMPLETE",
+    "named": false
+  },
+  {
+    "type": "coMPLETe",
+    "named": false
+  },
+  {
+    "type": "coMPLEtE",
+    "named": false
+  },
+  {
+    "type": "coMPLEte",
+    "named": false
+  },
+  {
+    "type": "coMPLeTE",
+    "named": false
+  },
+  {
+    "type": "coMPLeTe",
+    "named": false
+  },
+  {
+    "type": "coMPLetE",
+    "named": false
+  },
+  {
+    "type": "coMPLete",
+    "named": false
+  },
+  {
+    "type": "coMPlETE",
+    "named": false
+  },
+  {
+    "type": "coMPlETe",
+    "named": false
+  },
+  {
+    "type": "coMPlEtE",
+    "named": false
+  },
+  {
+    "type": "coMPlEte",
+    "named": false
+  },
+  {
+    "type": "coMPleTE",
+    "named": false
+  },
+  {
+    "type": "coMPleTe",
+    "named": false
+  },
+  {
+    "type": "coMPletE",
+    "named": false
+  },
+  {
+    "type": "coMPlete",
+    "named": false
+  },
+  {
+    "type": "coMpLETE",
+    "named": false
+  },
+  {
+    "type": "coMpLETe",
+    "named": false
+  },
+  {
+    "type": "coMpLEtE",
+    "named": false
+  },
+  {
+    "type": "coMpLEte",
+    "named": false
+  },
+  {
+    "type": "coMpLeTE",
+    "named": false
+  },
+  {
+    "type": "coMpLeTe",
+    "named": false
+  },
+  {
+    "type": "coMpLetE",
+    "named": false
+  },
+  {
+    "type": "coMpLete",
+    "named": false
+  },
+  {
+    "type": "coMplETE",
+    "named": false
+  },
+  {
+    "type": "coMplETe",
+    "named": false
+  },
+  {
+    "type": "coMplEtE",
+    "named": false
+  },
+  {
+    "type": "coMplEte",
+    "named": false
+  },
+  {
+    "type": "coMpleTE",
+    "named": false
+  },
+  {
+    "type": "coMpleTe",
+    "named": false
+  },
+  {
+    "type": "coMpletE",
+    "named": false
+  },
+  {
+    "type": "coMplete",
+    "named": false
+  },
+  {
+    "type": "comPLETE",
+    "named": false
+  },
+  {
+    "type": "comPLETe",
+    "named": false
+  },
+  {
+    "type": "comPLEtE",
+    "named": false
+  },
+  {
+    "type": "comPLEte",
+    "named": false
+  },
+  {
+    "type": "comPLeTE",
+    "named": false
+  },
+  {
+    "type": "comPLeTe",
+    "named": false
+  },
+  {
+    "type": "comPLetE",
+    "named": false
+  },
+  {
+    "type": "comPLete",
+    "named": false
+  },
+  {
+    "type": "comPlETE",
+    "named": false
+  },
+  {
+    "type": "comPlETe",
+    "named": false
+  },
+  {
+    "type": "comPlEtE",
+    "named": false
+  },
+  {
+    "type": "comPlEte",
+    "named": false
+  },
+  {
+    "type": "comPleTE",
+    "named": false
+  },
+  {
+    "type": "comPleTe",
+    "named": false
+  },
+  {
+    "type": "comPletE",
+    "named": false
+  },
+  {
+    "type": "comPlete",
+    "named": false
+  },
+  {
+    "type": "compLETE",
+    "named": false
+  },
+  {
+    "type": "compLETe",
+    "named": false
+  },
+  {
+    "type": "compLEtE",
+    "named": false
+  },
+  {
+    "type": "compLEte",
+    "named": false
+  },
+  {
+    "type": "compLeTE",
+    "named": false
+  },
+  {
+    "type": "compLeTe",
+    "named": false
+  },
+  {
+    "type": "compLetE",
+    "named": false
+  },
+  {
+    "type": "compLete",
+    "named": false
+  },
+  {
+    "type": "complETE",
+    "named": false
+  },
+  {
+    "type": "complETe",
+    "named": false
+  },
+  {
+    "type": "complEtE",
+    "named": false
+  },
+  {
+    "type": "complEte",
+    "named": false
+  },
+  {
+    "type": "compleTE",
+    "named": false
+  },
+  {
+    "type": "compleTe",
+    "named": false
+  },
+  {
+    "type": "completE",
     "named": false
   },
   {
@@ -408,7 +3809,1071 @@
     "named": false
   },
   {
+    "type": "dEFINE",
+    "named": false
+  },
+  {
+    "type": "dEFINe",
+    "named": false
+  },
+  {
+    "type": "dEFInE",
+    "named": false
+  },
+  {
+    "type": "dEFIne",
+    "named": false
+  },
+  {
+    "type": "dEFiNE",
+    "named": false
+  },
+  {
+    "type": "dEFiNe",
+    "named": false
+  },
+  {
+    "type": "dEFinE",
+    "named": false
+  },
+  {
+    "type": "dEFine",
+    "named": false
+  },
+  {
+    "type": "dETECTOR",
+    "named": false
+  },
+  {
+    "type": "dETECTOr",
+    "named": false
+  },
+  {
+    "type": "dETECToR",
+    "named": false
+  },
+  {
+    "type": "dETECTor",
+    "named": false
+  },
+  {
+    "type": "dETECtOR",
+    "named": false
+  },
+  {
+    "type": "dETECtOr",
+    "named": false
+  },
+  {
+    "type": "dETECtoR",
+    "named": false
+  },
+  {
+    "type": "dETECtor",
+    "named": false
+  },
+  {
+    "type": "dETEcTOR",
+    "named": false
+  },
+  {
+    "type": "dETEcTOr",
+    "named": false
+  },
+  {
+    "type": "dETEcToR",
+    "named": false
+  },
+  {
+    "type": "dETEcTor",
+    "named": false
+  },
+  {
+    "type": "dETEctOR",
+    "named": false
+  },
+  {
+    "type": "dETEctOr",
+    "named": false
+  },
+  {
+    "type": "dETEctoR",
+    "named": false
+  },
+  {
+    "type": "dETEctor",
+    "named": false
+  },
+  {
+    "type": "dETeCTOR",
+    "named": false
+  },
+  {
+    "type": "dETeCTOr",
+    "named": false
+  },
+  {
+    "type": "dETeCToR",
+    "named": false
+  },
+  {
+    "type": "dETeCTor",
+    "named": false
+  },
+  {
+    "type": "dETeCtOR",
+    "named": false
+  },
+  {
+    "type": "dETeCtOr",
+    "named": false
+  },
+  {
+    "type": "dETeCtoR",
+    "named": false
+  },
+  {
+    "type": "dETeCtor",
+    "named": false
+  },
+  {
+    "type": "dETecTOR",
+    "named": false
+  },
+  {
+    "type": "dETecTOr",
+    "named": false
+  },
+  {
+    "type": "dETecToR",
+    "named": false
+  },
+  {
+    "type": "dETecTor",
+    "named": false
+  },
+  {
+    "type": "dETectOR",
+    "named": false
+  },
+  {
+    "type": "dETectOr",
+    "named": false
+  },
+  {
+    "type": "dETectoR",
+    "named": false
+  },
+  {
+    "type": "dETector",
+    "named": false
+  },
+  {
+    "type": "dEfINE",
+    "named": false
+  },
+  {
+    "type": "dEfINe",
+    "named": false
+  },
+  {
+    "type": "dEfInE",
+    "named": false
+  },
+  {
+    "type": "dEfIne",
+    "named": false
+  },
+  {
+    "type": "dEfiNE",
+    "named": false
+  },
+  {
+    "type": "dEfiNe",
+    "named": false
+  },
+  {
+    "type": "dEfinE",
+    "named": false
+  },
+  {
+    "type": "dEfine",
+    "named": false
+  },
+  {
+    "type": "dEtECTOR",
+    "named": false
+  },
+  {
+    "type": "dEtECTOr",
+    "named": false
+  },
+  {
+    "type": "dEtECToR",
+    "named": false
+  },
+  {
+    "type": "dEtECTor",
+    "named": false
+  },
+  {
+    "type": "dEtECtOR",
+    "named": false
+  },
+  {
+    "type": "dEtECtOr",
+    "named": false
+  },
+  {
+    "type": "dEtECtoR",
+    "named": false
+  },
+  {
+    "type": "dEtECtor",
+    "named": false
+  },
+  {
+    "type": "dEtEcTOR",
+    "named": false
+  },
+  {
+    "type": "dEtEcTOr",
+    "named": false
+  },
+  {
+    "type": "dEtEcToR",
+    "named": false
+  },
+  {
+    "type": "dEtEcTor",
+    "named": false
+  },
+  {
+    "type": "dEtEctOR",
+    "named": false
+  },
+  {
+    "type": "dEtEctOr",
+    "named": false
+  },
+  {
+    "type": "dEtEctoR",
+    "named": false
+  },
+  {
+    "type": "dEtEctor",
+    "named": false
+  },
+  {
+    "type": "dEteCTOR",
+    "named": false
+  },
+  {
+    "type": "dEteCTOr",
+    "named": false
+  },
+  {
+    "type": "dEteCToR",
+    "named": false
+  },
+  {
+    "type": "dEteCTor",
+    "named": false
+  },
+  {
+    "type": "dEteCtOR",
+    "named": false
+  },
+  {
+    "type": "dEteCtOr",
+    "named": false
+  },
+  {
+    "type": "dEteCtoR",
+    "named": false
+  },
+  {
+    "type": "dEteCtor",
+    "named": false
+  },
+  {
+    "type": "dEtecTOR",
+    "named": false
+  },
+  {
+    "type": "dEtecTOr",
+    "named": false
+  },
+  {
+    "type": "dEtecToR",
+    "named": false
+  },
+  {
+    "type": "dEtecTor",
+    "named": false
+  },
+  {
+    "type": "dEtectOR",
+    "named": false
+  },
+  {
+    "type": "dEtectOr",
+    "named": false
+  },
+  {
+    "type": "dEtectoR",
+    "named": false
+  },
+  {
+    "type": "dEtector",
+    "named": false
+  },
+  {
+    "type": "deFINE",
+    "named": false
+  },
+  {
+    "type": "deFINe",
+    "named": false
+  },
+  {
+    "type": "deFInE",
+    "named": false
+  },
+  {
+    "type": "deFIne",
+    "named": false
+  },
+  {
+    "type": "deFiNE",
+    "named": false
+  },
+  {
+    "type": "deFiNe",
+    "named": false
+  },
+  {
+    "type": "deFinE",
+    "named": false
+  },
+  {
+    "type": "deFine",
+    "named": false
+  },
+  {
+    "type": "deTECTOR",
+    "named": false
+  },
+  {
+    "type": "deTECTOr",
+    "named": false
+  },
+  {
+    "type": "deTECToR",
+    "named": false
+  },
+  {
+    "type": "deTECTor",
+    "named": false
+  },
+  {
+    "type": "deTECtOR",
+    "named": false
+  },
+  {
+    "type": "deTECtOr",
+    "named": false
+  },
+  {
+    "type": "deTECtoR",
+    "named": false
+  },
+  {
+    "type": "deTECtor",
+    "named": false
+  },
+  {
+    "type": "deTEcTOR",
+    "named": false
+  },
+  {
+    "type": "deTEcTOr",
+    "named": false
+  },
+  {
+    "type": "deTEcToR",
+    "named": false
+  },
+  {
+    "type": "deTEcTor",
+    "named": false
+  },
+  {
+    "type": "deTEctOR",
+    "named": false
+  },
+  {
+    "type": "deTEctOr",
+    "named": false
+  },
+  {
+    "type": "deTEctoR",
+    "named": false
+  },
+  {
+    "type": "deTEctor",
+    "named": false
+  },
+  {
+    "type": "deTeCTOR",
+    "named": false
+  },
+  {
+    "type": "deTeCTOr",
+    "named": false
+  },
+  {
+    "type": "deTeCToR",
+    "named": false
+  },
+  {
+    "type": "deTeCTor",
+    "named": false
+  },
+  {
+    "type": "deTeCtOR",
+    "named": false
+  },
+  {
+    "type": "deTeCtOr",
+    "named": false
+  },
+  {
+    "type": "deTeCtoR",
+    "named": false
+  },
+  {
+    "type": "deTeCtor",
+    "named": false
+  },
+  {
+    "type": "deTecTOR",
+    "named": false
+  },
+  {
+    "type": "deTecTOr",
+    "named": false
+  },
+  {
+    "type": "deTecToR",
+    "named": false
+  },
+  {
+    "type": "deTecTor",
+    "named": false
+  },
+  {
+    "type": "deTectOR",
+    "named": false
+  },
+  {
+    "type": "deTectOr",
+    "named": false
+  },
+  {
+    "type": "deTectoR",
+    "named": false
+  },
+  {
+    "type": "deTector",
+    "named": false
+  },
+  {
+    "type": "defINE",
+    "named": false
+  },
+  {
+    "type": "defINe",
+    "named": false
+  },
+  {
+    "type": "defInE",
+    "named": false
+  },
+  {
+    "type": "defIne",
+    "named": false
+  },
+  {
+    "type": "defiNE",
+    "named": false
+  },
+  {
+    "type": "defiNe",
+    "named": false
+  },
+  {
+    "type": "definE",
+    "named": false
+  },
+  {
     "type": "define",
+    "named": false
+  },
+  {
+    "type": "detECTOR",
+    "named": false
+  },
+  {
+    "type": "detECTOr",
+    "named": false
+  },
+  {
+    "type": "detECToR",
+    "named": false
+  },
+  {
+    "type": "detECTor",
+    "named": false
+  },
+  {
+    "type": "detECtOR",
+    "named": false
+  },
+  {
+    "type": "detECtOr",
+    "named": false
+  },
+  {
+    "type": "detECtoR",
+    "named": false
+  },
+  {
+    "type": "detECtor",
+    "named": false
+  },
+  {
+    "type": "detEcTOR",
+    "named": false
+  },
+  {
+    "type": "detEcTOr",
+    "named": false
+  },
+  {
+    "type": "detEcToR",
+    "named": false
+  },
+  {
+    "type": "detEcTor",
+    "named": false
+  },
+  {
+    "type": "detEctOR",
+    "named": false
+  },
+  {
+    "type": "detEctOr",
+    "named": false
+  },
+  {
+    "type": "detEctoR",
+    "named": false
+  },
+  {
+    "type": "detEctor",
+    "named": false
+  },
+  {
+    "type": "deteCTOR",
+    "named": false
+  },
+  {
+    "type": "deteCTOr",
+    "named": false
+  },
+  {
+    "type": "deteCToR",
+    "named": false
+  },
+  {
+    "type": "deteCTor",
+    "named": false
+  },
+  {
+    "type": "deteCtOR",
+    "named": false
+  },
+  {
+    "type": "deteCtOr",
+    "named": false
+  },
+  {
+    "type": "deteCtoR",
+    "named": false
+  },
+  {
+    "type": "deteCtor",
+    "named": false
+  },
+  {
+    "type": "detecTOR",
+    "named": false
+  },
+  {
+    "type": "detecTOr",
+    "named": false
+  },
+  {
+    "type": "detecToR",
+    "named": false
+  },
+  {
+    "type": "detecTor",
+    "named": false
+  },
+  {
+    "type": "detectOR",
+    "named": false
+  },
+  {
+    "type": "detectOr",
+    "named": false
+  },
+  {
+    "type": "detectoR",
+    "named": false
+  },
+  {
+    "type": "detector",
+    "named": false
+  },
+  {
+    "type": "eLSE",
+    "named": false
+  },
+  {
+    "type": "eLSEIF",
+    "named": false
+  },
+  {
+    "type": "eLSEIf",
+    "named": false
+  },
+  {
+    "type": "eLSEiF",
+    "named": false
+  },
+  {
+    "type": "eLSEif",
+    "named": false
+  },
+  {
+    "type": "eLSe",
+    "named": false
+  },
+  {
+    "type": "eLSeIF",
+    "named": false
+  },
+  {
+    "type": "eLSeIf",
+    "named": false
+  },
+  {
+    "type": "eLSeiF",
+    "named": false
+  },
+  {
+    "type": "eLSeif",
+    "named": false
+  },
+  {
+    "type": "eLsE",
+    "named": false
+  },
+  {
+    "type": "eLsEIF",
+    "named": false
+  },
+  {
+    "type": "eLsEIf",
+    "named": false
+  },
+  {
+    "type": "eLsEiF",
+    "named": false
+  },
+  {
+    "type": "eLsEif",
+    "named": false
+  },
+  {
+    "type": "eLse",
+    "named": false
+  },
+  {
+    "type": "eLseIF",
+    "named": false
+  },
+  {
+    "type": "eLseIf",
+    "named": false
+  },
+  {
+    "type": "eLseiF",
+    "named": false
+  },
+  {
+    "type": "eLseif",
+    "named": false
+  },
+  {
+    "type": "eNDIF",
+    "named": false
+  },
+  {
+    "type": "eNDIf",
+    "named": false
+  },
+  {
+    "type": "eNDWHILE",
+    "named": false
+  },
+  {
+    "type": "eNDWHILe",
+    "named": false
+  },
+  {
+    "type": "eNDWHIlE",
+    "named": false
+  },
+  {
+    "type": "eNDWHIle",
+    "named": false
+  },
+  {
+    "type": "eNDWHiLE",
+    "named": false
+  },
+  {
+    "type": "eNDWHiLe",
+    "named": false
+  },
+  {
+    "type": "eNDWHilE",
+    "named": false
+  },
+  {
+    "type": "eNDWHile",
+    "named": false
+  },
+  {
+    "type": "eNDWhILE",
+    "named": false
+  },
+  {
+    "type": "eNDWhILe",
+    "named": false
+  },
+  {
+    "type": "eNDWhIlE",
+    "named": false
+  },
+  {
+    "type": "eNDWhIle",
+    "named": false
+  },
+  {
+    "type": "eNDWhiLE",
+    "named": false
+  },
+  {
+    "type": "eNDWhiLe",
+    "named": false
+  },
+  {
+    "type": "eNDWhilE",
+    "named": false
+  },
+  {
+    "type": "eNDWhile",
+    "named": false
+  },
+  {
+    "type": "eNDiF",
+    "named": false
+  },
+  {
+    "type": "eNDif",
+    "named": false
+  },
+  {
+    "type": "eNDwHILE",
+    "named": false
+  },
+  {
+    "type": "eNDwHILe",
+    "named": false
+  },
+  {
+    "type": "eNDwHIlE",
+    "named": false
+  },
+  {
+    "type": "eNDwHIle",
+    "named": false
+  },
+  {
+    "type": "eNDwHiLE",
+    "named": false
+  },
+  {
+    "type": "eNDwHiLe",
+    "named": false
+  },
+  {
+    "type": "eNDwHilE",
+    "named": false
+  },
+  {
+    "type": "eNDwHile",
+    "named": false
+  },
+  {
+    "type": "eNDwhILE",
+    "named": false
+  },
+  {
+    "type": "eNDwhILe",
+    "named": false
+  },
+  {
+    "type": "eNDwhIlE",
+    "named": false
+  },
+  {
+    "type": "eNDwhIle",
+    "named": false
+  },
+  {
+    "type": "eNDwhiLE",
+    "named": false
+  },
+  {
+    "type": "eNDwhiLe",
+    "named": false
+  },
+  {
+    "type": "eNDwhilE",
+    "named": false
+  },
+  {
+    "type": "eNDwhile",
+    "named": false
+  },
+  {
+    "type": "eNdIF",
+    "named": false
+  },
+  {
+    "type": "eNdIf",
+    "named": false
+  },
+  {
+    "type": "eNdWHILE",
+    "named": false
+  },
+  {
+    "type": "eNdWHILe",
+    "named": false
+  },
+  {
+    "type": "eNdWHIlE",
+    "named": false
+  },
+  {
+    "type": "eNdWHIle",
+    "named": false
+  },
+  {
+    "type": "eNdWHiLE",
+    "named": false
+  },
+  {
+    "type": "eNdWHiLe",
+    "named": false
+  },
+  {
+    "type": "eNdWHilE",
+    "named": false
+  },
+  {
+    "type": "eNdWHile",
+    "named": false
+  },
+  {
+    "type": "eNdWhILE",
+    "named": false
+  },
+  {
+    "type": "eNdWhILe",
+    "named": false
+  },
+  {
+    "type": "eNdWhIlE",
+    "named": false
+  },
+  {
+    "type": "eNdWhIle",
+    "named": false
+  },
+  {
+    "type": "eNdWhiLE",
+    "named": false
+  },
+  {
+    "type": "eNdWhiLe",
+    "named": false
+  },
+  {
+    "type": "eNdWhilE",
+    "named": false
+  },
+  {
+    "type": "eNdWhile",
+    "named": false
+  },
+  {
+    "type": "eNdiF",
+    "named": false
+  },
+  {
+    "type": "eNdif",
+    "named": false
+  },
+  {
+    "type": "eNdwHILE",
+    "named": false
+  },
+  {
+    "type": "eNdwHILe",
+    "named": false
+  },
+  {
+    "type": "eNdwHIlE",
+    "named": false
+  },
+  {
+    "type": "eNdwHIle",
+    "named": false
+  },
+  {
+    "type": "eNdwHiLE",
+    "named": false
+  },
+  {
+    "type": "eNdwHiLe",
+    "named": false
+  },
+  {
+    "type": "eNdwHilE",
+    "named": false
+  },
+  {
+    "type": "eNdwHile",
+    "named": false
+  },
+  {
+    "type": "eNdwhILE",
+    "named": false
+  },
+  {
+    "type": "eNdwhILe",
+    "named": false
+  },
+  {
+    "type": "eNdwhIlE",
+    "named": false
+  },
+  {
+    "type": "eNdwhIle",
+    "named": false
+  },
+  {
+    "type": "eNdwhiLE",
+    "named": false
+  },
+  {
+    "type": "eNdwhiLe",
+    "named": false
+  },
+  {
+    "type": "eNdwhilE",
+    "named": false
+  },
+  {
+    "type": "eNdwhile",
+    "named": false
+  },
+  {
+    "type": "elSE",
+    "named": false
+  },
+  {
+    "type": "elSEIF",
+    "named": false
+  },
+  {
+    "type": "elSEIf",
+    "named": false
+  },
+  {
+    "type": "elSEiF",
+    "named": false
+  },
+  {
+    "type": "elSEif",
+    "named": false
+  },
+  {
+    "type": "elSe",
+    "named": false
+  },
+  {
+    "type": "elSeIF",
+    "named": false
+  },
+  {
+    "type": "elSeIf",
+    "named": false
+  },
+  {
+    "type": "elSeiF",
+    "named": false
+  },
+  {
+    "type": "elSeif",
+    "named": false
+  },
+  {
+    "type": "elsE",
+    "named": false
+  },
+  {
+    "type": "elsEIF",
+    "named": false
+  },
+  {
+    "type": "elsEIf",
+    "named": false
+  },
+  {
+    "type": "elsEiF",
+    "named": false
+  },
+  {
+    "type": "elsEif",
     "named": false
   },
   {
@@ -416,11 +4881,503 @@
     "named": false
   },
   {
+    "type": "elseIF",
+    "named": false
+  },
+  {
+    "type": "elseIf",
+    "named": false
+  },
+  {
+    "type": "elseiF",
+    "named": false
+  },
+  {
+    "type": "elseif",
+    "named": false
+  },
+  {
+    "type": "enDIF",
+    "named": false
+  },
+  {
+    "type": "enDIf",
+    "named": false
+  },
+  {
+    "type": "enDWHILE",
+    "named": false
+  },
+  {
+    "type": "enDWHILe",
+    "named": false
+  },
+  {
+    "type": "enDWHIlE",
+    "named": false
+  },
+  {
+    "type": "enDWHIle",
+    "named": false
+  },
+  {
+    "type": "enDWHiLE",
+    "named": false
+  },
+  {
+    "type": "enDWHiLe",
+    "named": false
+  },
+  {
+    "type": "enDWHilE",
+    "named": false
+  },
+  {
+    "type": "enDWHile",
+    "named": false
+  },
+  {
+    "type": "enDWhILE",
+    "named": false
+  },
+  {
+    "type": "enDWhILe",
+    "named": false
+  },
+  {
+    "type": "enDWhIlE",
+    "named": false
+  },
+  {
+    "type": "enDWhIle",
+    "named": false
+  },
+  {
+    "type": "enDWhiLE",
+    "named": false
+  },
+  {
+    "type": "enDWhiLe",
+    "named": false
+  },
+  {
+    "type": "enDWhilE",
+    "named": false
+  },
+  {
+    "type": "enDWhile",
+    "named": false
+  },
+  {
+    "type": "enDiF",
+    "named": false
+  },
+  {
+    "type": "enDif",
+    "named": false
+  },
+  {
+    "type": "enDwHILE",
+    "named": false
+  },
+  {
+    "type": "enDwHILe",
+    "named": false
+  },
+  {
+    "type": "enDwHIlE",
+    "named": false
+  },
+  {
+    "type": "enDwHIle",
+    "named": false
+  },
+  {
+    "type": "enDwHiLE",
+    "named": false
+  },
+  {
+    "type": "enDwHiLe",
+    "named": false
+  },
+  {
+    "type": "enDwHilE",
+    "named": false
+  },
+  {
+    "type": "enDwHile",
+    "named": false
+  },
+  {
+    "type": "enDwhILE",
+    "named": false
+  },
+  {
+    "type": "enDwhILe",
+    "named": false
+  },
+  {
+    "type": "enDwhIlE",
+    "named": false
+  },
+  {
+    "type": "enDwhIle",
+    "named": false
+  },
+  {
+    "type": "enDwhiLE",
+    "named": false
+  },
+  {
+    "type": "enDwhiLe",
+    "named": false
+  },
+  {
+    "type": "enDwhilE",
+    "named": false
+  },
+  {
+    "type": "enDwhile",
+    "named": false
+  },
+  {
+    "type": "endIF",
+    "named": false
+  },
+  {
+    "type": "endIf",
+    "named": false
+  },
+  {
+    "type": "endWHILE",
+    "named": false
+  },
+  {
+    "type": "endWHILe",
+    "named": false
+  },
+  {
+    "type": "endWHIlE",
+    "named": false
+  },
+  {
+    "type": "endWHIle",
+    "named": false
+  },
+  {
+    "type": "endWHiLE",
+    "named": false
+  },
+  {
+    "type": "endWHiLe",
+    "named": false
+  },
+  {
+    "type": "endWHilE",
+    "named": false
+  },
+  {
+    "type": "endWHile",
+    "named": false
+  },
+  {
+    "type": "endWhILE",
+    "named": false
+  },
+  {
+    "type": "endWhILe",
+    "named": false
+  },
+  {
+    "type": "endWhIlE",
+    "named": false
+  },
+  {
+    "type": "endWhIle",
+    "named": false
+  },
+  {
+    "type": "endWhiLE",
+    "named": false
+  },
+  {
+    "type": "endWhiLe",
+    "named": false
+  },
+  {
+    "type": "endWhilE",
+    "named": false
+  },
+  {
+    "type": "endWhile",
+    "named": false
+  },
+  {
+    "type": "endiF",
+    "named": false
+  },
+  {
     "type": "endif",
     "named": false
   },
   {
+    "type": "endwHILE",
+    "named": false
+  },
+  {
+    "type": "endwHILe",
+    "named": false
+  },
+  {
+    "type": "endwHIlE",
+    "named": false
+  },
+  {
+    "type": "endwHIle",
+    "named": false
+  },
+  {
+    "type": "endwHiLE",
+    "named": false
+  },
+  {
+    "type": "endwHiLe",
+    "named": false
+  },
+  {
+    "type": "endwHilE",
+    "named": false
+  },
+  {
+    "type": "endwHile",
+    "named": false
+  },
+  {
+    "type": "endwhILE",
+    "named": false
+  },
+  {
+    "type": "endwhILe",
+    "named": false
+  },
+  {
+    "type": "endwhIlE",
+    "named": false
+  },
+  {
+    "type": "endwhIle",
+    "named": false
+  },
+  {
+    "type": "endwhiLE",
+    "named": false
+  },
+  {
+    "type": "endwhiLe",
+    "named": false
+  },
+  {
+    "type": "endwhilE",
+    "named": false
+  },
+  {
     "type": "endwhile",
+    "named": false
+  },
+  {
+    "type": "iF",
+    "named": false
+  },
+  {
+    "type": "iNCLUDE",
+    "named": false
+  },
+  {
+    "type": "iNCLUDe",
+    "named": false
+  },
+  {
+    "type": "iNCLUdE",
+    "named": false
+  },
+  {
+    "type": "iNCLUde",
+    "named": false
+  },
+  {
+    "type": "iNCLuDE",
+    "named": false
+  },
+  {
+    "type": "iNCLuDe",
+    "named": false
+  },
+  {
+    "type": "iNCLudE",
+    "named": false
+  },
+  {
+    "type": "iNCLude",
+    "named": false
+  },
+  {
+    "type": "iNClUDE",
+    "named": false
+  },
+  {
+    "type": "iNClUDe",
+    "named": false
+  },
+  {
+    "type": "iNClUdE",
+    "named": false
+  },
+  {
+    "type": "iNClUde",
+    "named": false
+  },
+  {
+    "type": "iNCluDE",
+    "named": false
+  },
+  {
+    "type": "iNCluDe",
+    "named": false
+  },
+  {
+    "type": "iNCludE",
+    "named": false
+  },
+  {
+    "type": "iNClude",
+    "named": false
+  },
+  {
+    "type": "iNVOKE",
+    "named": false
+  },
+  {
+    "type": "iNVOKe",
+    "named": false
+  },
+  {
+    "type": "iNVOkE",
+    "named": false
+  },
+  {
+    "type": "iNVOke",
+    "named": false
+  },
+  {
+    "type": "iNVoKE",
+    "named": false
+  },
+  {
+    "type": "iNVoKe",
+    "named": false
+  },
+  {
+    "type": "iNVokE",
+    "named": false
+  },
+  {
+    "type": "iNVoke",
+    "named": false
+  },
+  {
+    "type": "iNcLUDE",
+    "named": false
+  },
+  {
+    "type": "iNcLUDe",
+    "named": false
+  },
+  {
+    "type": "iNcLUdE",
+    "named": false
+  },
+  {
+    "type": "iNcLUde",
+    "named": false
+  },
+  {
+    "type": "iNcLuDE",
+    "named": false
+  },
+  {
+    "type": "iNcLuDe",
+    "named": false
+  },
+  {
+    "type": "iNcLudE",
+    "named": false
+  },
+  {
+    "type": "iNcLude",
+    "named": false
+  },
+  {
+    "type": "iNclUDE",
+    "named": false
+  },
+  {
+    "type": "iNclUDe",
+    "named": false
+  },
+  {
+    "type": "iNclUdE",
+    "named": false
+  },
+  {
+    "type": "iNclUde",
+    "named": false
+  },
+  {
+    "type": "iNcluDE",
+    "named": false
+  },
+  {
+    "type": "iNcluDe",
+    "named": false
+  },
+  {
+    "type": "iNcludE",
+    "named": false
+  },
+  {
+    "type": "iNclude",
+    "named": false
+  },
+  {
+    "type": "iNvOKE",
+    "named": false
+  },
+  {
+    "type": "iNvOKe",
+    "named": false
+  },
+  {
+    "type": "iNvOkE",
+    "named": false
+  },
+  {
+    "type": "iNvOke",
+    "named": false
+  },
+  {
+    "type": "iNvoKE",
+    "named": false
+  },
+  {
+    "type": "iNvoKe",
+    "named": false
+  },
+  {
+    "type": "iNvokE",
+    "named": false
+  },
+  {
+    "type": "iNvoke",
     "named": false
   },
   {
@@ -432,7 +5389,195 @@
     "named": false
   },
   {
+    "type": "inCLUDE",
+    "named": false
+  },
+  {
+    "type": "inCLUDe",
+    "named": false
+  },
+  {
+    "type": "inCLUdE",
+    "named": false
+  },
+  {
+    "type": "inCLUde",
+    "named": false
+  },
+  {
+    "type": "inCLuDE",
+    "named": false
+  },
+  {
+    "type": "inCLuDe",
+    "named": false
+  },
+  {
+    "type": "inCLudE",
+    "named": false
+  },
+  {
+    "type": "inCLude",
+    "named": false
+  },
+  {
+    "type": "inClUDE",
+    "named": false
+  },
+  {
+    "type": "inClUDe",
+    "named": false
+  },
+  {
+    "type": "inClUdE",
+    "named": false
+  },
+  {
+    "type": "inClUde",
+    "named": false
+  },
+  {
+    "type": "inCluDE",
+    "named": false
+  },
+  {
+    "type": "inCluDe",
+    "named": false
+  },
+  {
+    "type": "inCludE",
+    "named": false
+  },
+  {
+    "type": "inClude",
+    "named": false
+  },
+  {
+    "type": "inVOKE",
+    "named": false
+  },
+  {
+    "type": "inVOKe",
+    "named": false
+  },
+  {
+    "type": "inVOkE",
+    "named": false
+  },
+  {
+    "type": "inVOke",
+    "named": false
+  },
+  {
+    "type": "inVoKE",
+    "named": false
+  },
+  {
+    "type": "inVoKe",
+    "named": false
+  },
+  {
+    "type": "inVokE",
+    "named": false
+  },
+  {
+    "type": "inVoke",
+    "named": false
+  },
+  {
+    "type": "incLUDE",
+    "named": false
+  },
+  {
+    "type": "incLUDe",
+    "named": false
+  },
+  {
+    "type": "incLUdE",
+    "named": false
+  },
+  {
+    "type": "incLUde",
+    "named": false
+  },
+  {
+    "type": "incLuDE",
+    "named": false
+  },
+  {
+    "type": "incLuDe",
+    "named": false
+  },
+  {
+    "type": "incLudE",
+    "named": false
+  },
+  {
+    "type": "incLude",
+    "named": false
+  },
+  {
+    "type": "inclUDE",
+    "named": false
+  },
+  {
+    "type": "inclUDe",
+    "named": false
+  },
+  {
+    "type": "inclUdE",
+    "named": false
+  },
+  {
+    "type": "inclUde",
+    "named": false
+  },
+  {
+    "type": "incluDE",
+    "named": false
+  },
+  {
+    "type": "incluDe",
+    "named": false
+  },
+  {
+    "type": "includE",
+    "named": false
+  },
+  {
     "type": "include",
+    "named": false
+  },
+  {
+    "type": "invOKE",
+    "named": false
+  },
+  {
+    "type": "invOKe",
+    "named": false
+  },
+  {
+    "type": "invOkE",
+    "named": false
+  },
+  {
+    "type": "invOke",
+    "named": false
+  },
+  {
+    "type": "invoKE",
+    "named": false
+  },
+  {
+    "type": "invoKe",
+    "named": false
+  },
+  {
+    "type": "invokE",
+    "named": false
+  },
+  {
+    "type": "invoke",
     "named": false
   },
   {
@@ -444,12 +5589,200 @@
     "named": true
   },
   {
+    "type": "sELECT",
+    "named": false
+  },
+  {
+    "type": "sELECt",
+    "named": false
+  },
+  {
+    "type": "sELEcT",
+    "named": false
+  },
+  {
+    "type": "sELEct",
+    "named": false
+  },
+  {
+    "type": "sELeCT",
+    "named": false
+  },
+  {
+    "type": "sELeCt",
+    "named": false
+  },
+  {
+    "type": "sELecT",
+    "named": false
+  },
+  {
+    "type": "sELect",
+    "named": false
+  },
+  {
+    "type": "sElECT",
+    "named": false
+  },
+  {
+    "type": "sElECt",
+    "named": false
+  },
+  {
+    "type": "sElEcT",
+    "named": false
+  },
+  {
+    "type": "sElEct",
+    "named": false
+  },
+  {
+    "type": "sEleCT",
+    "named": false
+  },
+  {
+    "type": "sEleCt",
+    "named": false
+  },
+  {
+    "type": "sElecT",
+    "named": false
+  },
+  {
+    "type": "sElect",
+    "named": false
+  },
+  {
+    "type": "seLECT",
+    "named": false
+  },
+  {
+    "type": "seLECt",
+    "named": false
+  },
+  {
+    "type": "seLEcT",
+    "named": false
+  },
+  {
+    "type": "seLEct",
+    "named": false
+  },
+  {
+    "type": "seLeCT",
+    "named": false
+  },
+  {
+    "type": "seLeCt",
+    "named": false
+  },
+  {
+    "type": "seLecT",
+    "named": false
+  },
+  {
+    "type": "seLect",
+    "named": false
+  },
+  {
+    "type": "selECT",
+    "named": false
+  },
+  {
+    "type": "selECt",
+    "named": false
+  },
+  {
+    "type": "selEcT",
+    "named": false
+  },
+  {
+    "type": "selEct",
+    "named": false
+  },
+  {
+    "type": "seleCT",
+    "named": false
+  },
+  {
+    "type": "seleCt",
+    "named": false
+  },
+  {
+    "type": "selecT",
+    "named": false
+  },
+  {
+    "type": "select",
+    "named": false
+  },
+  {
     "type": "string",
     "named": true
   },
   {
     "type": "variable",
     "named": true
+  },
+  {
+    "type": "wHILE",
+    "named": false
+  },
+  {
+    "type": "wHILe",
+    "named": false
+  },
+  {
+    "type": "wHIlE",
+    "named": false
+  },
+  {
+    "type": "wHIle",
+    "named": false
+  },
+  {
+    "type": "wHiLE",
+    "named": false
+  },
+  {
+    "type": "wHiLe",
+    "named": false
+  },
+  {
+    "type": "wHilE",
+    "named": false
+  },
+  {
+    "type": "wHile",
+    "named": false
+  },
+  {
+    "type": "whILE",
+    "named": false
+  },
+  {
+    "type": "whILe",
+    "named": false
+  },
+  {
+    "type": "whIlE",
+    "named": false
+  },
+  {
+    "type": "whIle",
+    "named": false
+  },
+  {
+    "type": "whiLE",
+    "named": false
+  },
+  {
+    "type": "whiLe",
+    "named": false
+  },
+  {
+    "type": "whilE",
+    "named": false
   },
   {
     "type": "while",
