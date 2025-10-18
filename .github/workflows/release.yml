@@ -37,7 +37,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: tree-sitter-grammar-release
-        path: release.zip
+        path: tree-sitter-grammer-release.zip
 
   release:
     needs: build
