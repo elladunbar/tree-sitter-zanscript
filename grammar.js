@@ -30,7 +30,7 @@ module.exports = grammar({
         'define',
         'Define',
       ),
-      $.match,
+      field('find', $.match),
       $.match,
     ),
 
