@@ -43,7 +43,7 @@
       "file-types": [
         "zs"
       ],
-      "injection-regex": "zanscript"
+      "injection-regex": "zanscript",
       "highlights": [
         "queries/highlights.scm"
       ]
